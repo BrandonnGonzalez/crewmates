@@ -1,8 +1,9 @@
 // This component is responsible for creating a new crew member in the database
 
-import { createElement } from 'react';
 import { useState } from 'react';
 import { supabase } from '../client';
+import classes from '../CreateCrewMember.module.css';
+
 function CreateCrewMember() {
     const [member, setMember] = useState({name: "", speed: "", color: ""});
 
@@ -25,27 +26,55 @@ function CreateCrewMember() {
             .select();
         window.location="/";
     }
+    
     return (
-        <div>
-            <form>
-                <label htmlFor="name">Name</label> <br/>
-                <input type="text" id="name" name="name" onChange={handleChange} /> <br />
-                <br />
+        <div className={classes.container}>
+            <div className={classes.formWrapper}>
+                <h2>Create a New Crewmate</h2>
+                <form className={classes.form}>
+                    <div className={classes.formGroup}>
+                        <label htmlFor="name" className={classes.label}>Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            onChange={handleChange}
+                            className={classes.input}
+                        />
+                    </div>
 
-                <label htmlFor="speed">Speed</label><br />
-                <input type="text" id="speed" name="speed" onChange={handleChange} /> <br />
-                <br />
+                    <div className={classes.formGroup}>
+                        <label htmlFor="speed" className={classes.label}>Speed</label>
+                        <input 
+                            type="text" 
+                            id="speed" 
+                            name="speed" 
+                            onChange={handleChange}
+                            className={classes.input}
+                        />
+                    </div>
 
-                <label htmlFor="color">Color</label><br/>
-                <input type="text" id="color" name="color" onChange={handleChange} /> <br />
-                <br />
-                <input type="submit" value="Submit" onClick={createMember}/>
-            </form>
+                    <div className={classes.formGroup}>
+                        <label htmlFor="color" className={classes.label}>Color</label>
+                        <input 
+                            type="text" 
+                            id="color" 
+                            name="color" 
+                            onChange={handleChange}
+                            className={classes.input}
+                        />
+                    </div>
+
+                    <input 
+                        type="submit" 
+                        value="Submit" 
+                        onClick={createMember}
+                        className={classes.submitButton}
+                    />
+                </form>
+            </div>
         </div>
     )
-
 }
-
-
 
 export default CreateCrewMember;
