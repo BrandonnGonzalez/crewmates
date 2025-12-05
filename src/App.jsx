@@ -1,16 +1,17 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css'
 
-
-// ALL CRUD components
+// ALL CRUD and regular components
 import CreateCrewMember from './components/CreateCrewMember'
+import HomePage from './components/HomePage'
 
 function App() {
 
   return (
     <div>
-      <h1> Create a New Crewmate </h1>
-      <CreateCrewMember />
+      <HomePage />
+      
     </div>
   )
 }
