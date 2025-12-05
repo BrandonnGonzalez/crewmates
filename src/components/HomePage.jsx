@@ -1,4 +1,5 @@
 import amongus from '../assets/amongus.png';
+import ReadCrewMember from './ReadCrewMember';
 
 function HomePage() {
   return (
@@ -7,6 +8,7 @@ function HomePage() {
         <h1>Welcome to the Crewmate Creator!</h1>
         <p>Here is where you can create your very own set of crewmates before sending them off into space!</p>
         <img src={amongus} alt="among us characters" />
+        <ReadCrewMember />
       </div>
     </>
   );
