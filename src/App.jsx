@@ -6,6 +6,7 @@ import './App.css'
 import CreateCrewMember from './components/CreateCrewMember'
 import HomePage from './components/HomePage'
 import NavBar from './components/NavBar';
+import NoPageFound from './components/NoPageFound';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
           <Route path="/" element={<HomePage />}/>
           <Route path="/CreateCrewMember" element={<CreateCrewMember />}/>
+          <Route path="*" element={<NoPageFound />} />
       </Routes>
       </BrowserRouter>
     </div>
