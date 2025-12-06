@@ -11,7 +11,7 @@ import classes from '../NavBar.module.css';
 const data = [
   { link: '/', label: 'Home', icon: IconBellRinging },
   { link: '/CreateCrewMember', label: 'Create a Crewmate', icon: IconReceipt2 },
-  { link: '/CrewmateGallery', label: 'Crewmate Gallery', icon: IconFingerprint }
+  { link: '/ReadCrewMember', label: 'Crewmate Gallery', icon: IconFingerprint }
 ];
 
 function NavBar() {
