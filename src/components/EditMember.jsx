@@ -33,6 +33,8 @@ function EditMember() {
         navigate('/');
     };
 
+    
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setMember((prev) => {

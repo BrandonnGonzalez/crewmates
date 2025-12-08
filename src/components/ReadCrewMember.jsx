@@ -23,6 +23,14 @@ function ReadCrewMember() {
         navigate(`/edit/${memberId}`);
     };
 
+    const deleteMember = async (memberId) => {
+        await supabase
+            .from ('crew')
+            .delete()
+            .eq('id', memberId)
+        window.location='/';
+    }
+
     return (
         <div style={{ marginLeft: '300px', padding: '2rem' }}>
             <h1>Crewmate Gallery</h1>
@@ -36,23 +44,44 @@ function ReadCrewMember() {
                         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
                         position: 'relative'
                     }}>
-                        <button 
-                            onClick={() => handleEdit(member.id)}
-                            style={{
-                                position: 'absolute',
-                                top: '1rem',
-                                right: '1rem',
-                                background: 'none',
-                                border: 'none',
-                                cursor: 'pointer',
-                                fontSize: '1.5rem',
-                                color: 'white',
-                                padding: '0.5rem',
-                                lineHeight: '1'
-                            }}
-                        >
-                            ⋮
-                        </button>
+                        <div style={{
+                            position: 'absolute',
+                            top: '1rem',
+                            right: '1rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '0.5rem'
+                        }}>
+                            <button 
+                                onClick={() => handleEdit(member.id)}
+                                style={{
+                                    background: 'none',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    fontSize: '1.5rem',
+                                    color: 'white',
+                                    padding: '0.5rem',
+                                    lineHeight: '1'
+                                }}
+                            >
+                                ⋮
+                            </button>
+                            <button
+                                onClick={() => deleteMember(member.id)} 
+                                style={{
+                                    background: 'none',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    fontSize: '1.5rem',
+                                    color: 'white',
+                                    padding: '0.5rem',
+                                    lineHeight: '1'
+                                }}
+                            >
+                                ✕
+                            </button>
+                        </div>
+                        
                         <h3>{member.name}</h3>
                         <p><strong>Speed:</strong> {member.speed}</p>
                         <p><strong>Color:</strong> {member.color}</p>
